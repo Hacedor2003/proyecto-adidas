@@ -1,0 +1,54 @@
+<main class="w-full grid grid-rows-2">
+
+  <div class="grid grid-cols-3 row-span-1">
+    <section class="col-span-2 p-2 justify-around">
+      <img [src]="producto.Image" alt={{producto.Name}} [srcset]="producto.Image1" width="300" height="300"
+        class="w-full h-auto aspect-square">
+    </section>
+    <section class="w-full text-left p-2 col-span-1 h-screen">
+
+      <p class="opacity-80">{{producto.Category}}</p>
+      <p class="text-lg font-semibold">{{producto.Keywords.replaceAll(" ","■")}}</p>
+
+
+      <p class="uppercase text-3xl font-bold">{{producto.Name}}</p>
+      <p class="font-semibold">{{producto.Price}}</p>
+
+
+      <p class="font-thin">{{producto.Promo_apply}}</p>
+
+
+      <p>{{producto.Colors}}</p>
+      <div class="w-full flex-row flex-wrap">
+        <ul *ngFor="let color of producto.Color_detail" class="flex flex-col">
+          <li>{{color.color}}</li>
+          <li><img src={{color.image_url}} alt={{color.color}}></li>
+        </ul>
+
+      </div>
+    </section>
+  </div>
+
+
+  <div class="row-span-2 w-full px-2">
+    <p class="">{{producto.Details}}</p>
+    <h6 class="mb-0 font-mono text-xl text-center">
+      <span>{{producto.Description_title}}</span>
+    </h6>
+    <div class="p-4 text-lg font-serif">
+      {{producto.Description_content}}
+    </div>
+    <section class="p-2 text-lg">
+      <h6>Reviews:</h6>
+    <p>{{producto.Reviews.votes}} votes</p>
+    <p>{{producto.Reviews.rating}} rating</p>
+    </section>
+    <section class="p-4 bg-red-500 rounded-lg">
+    <h6 class="text-2xl w-full text-center">{{producto.Care.title}} ⚠️</h6>
+    <ul class="px-2">
+      <li class="list-disc" *ngFor="let careContent of producto.Care.content">{{careContent}}</li>
+    </ul>
+    </section>
+  </div>
+
+</main>

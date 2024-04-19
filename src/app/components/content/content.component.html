@@ -1,0 +1,7 @@
+<div class="grid grid-cols-5 grid-rows-1 w-full">
+
+  <section *ngFor="let product of list_products_dinamic">
+    <img [src]="product.Image" alt={{product.Name}} [srcset]="product.Image1" width="300" height="300">
+  </section>
+
+</div>

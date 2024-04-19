@@ -1,0 +1,9 @@
+<li (mouseenter)="setProducts()" (mouseleave)="clearProducts()" class="font-bold">
+  {{category}}
+  <div *ngIf="products.size">
+    <section *ngFor="let product of products" class="flex sm:flex-col md:flex-row gap-x-2 my-2 items-center">
+      <img src={{product.Image}} width="70" height="70" alt={{product.Name}} srcset={{product.Image1}}>
+      <p class="cursor-pointer" (click)="navigate(product.Name)">{{product.Name}}</p>
+    </section>
+  </div>
+</li>
